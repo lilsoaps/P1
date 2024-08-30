@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}eDeti Shop{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
+{% endblock %}
+{% block body %}
+<div class="container mt-5">
+    <div class="cart-container">
+        <h1 class="mb-4 text-center">Your Shopping Cart</h1>
+
+        {% if cart %}
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart %}
+                    <tr>
+                        <td>{{ item[3] }}</td>
+                        <td>{{ item[1] }}</td>
+                        <td>{{ item[2] }} x {{item[1]}} </td>
+                        <td>
+                            <form method="POST" action="{{ url_for('views.remove_item') }}">
+                                <button class="btn btn-danger action-button" type="submit">Remove</button>
+                                <input type="hidden" name="product_id" value="{{ item[0] }}">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+            <a class="btn btn-secondary" href="/">Continue Shopping</a>
+            <a class="btn btn-primary action_btn" href="/checkout">Proceed to Checkout</a>
+        </div>
+        {% else %}
+        <div class="alert alert-warning text-center" role="alert">
+            Your cart is currently empty. <a href="/" class="alert-link">Continue Shopping</a> to add items.
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

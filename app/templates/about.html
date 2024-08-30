@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}eDeti Shop{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/about.css')}}">
+{% endblock %}
+<div class="d-flex flex-column" style="min-height: 990px;"></div>
+{% block body %}
+
+<section class="about">
+  <div class="about-section">
+      <h1>About Us Page</h1>
+      <p>This is the about us page of the project of Segurança Informática e nas Organizações</p>
+      <p>This project was done by:</p>
+      <p>Francisco Gonçalves Nmec: 1085381</p>
+    </div>  
+    
+  <div class="about-description">
+    <h3>Project description</h3>
+    <p>The assignment focuses on vulnerabilities in software projects, their exploration, and prevention. 
+      We were required to develop a small online shop application selling memorabilia for the Department of Electronics, 
+      Telecommunications, and Informatics (DETI) at the University of Aveiro. The online shop features items like mugs, cups, 
+      t-shirts, hoodies, and similar memorabilia.</p>
+  </div>
+  <div class="about-cwe">
+    <h3>Common Weakness Enumeration (CWE)</h3>
+    <p>The following are the CWEs that were addressed in this project:</p>
+      1. CWE 89
+      3. CWE 79
+      4. CWE 89
+      5. CWE 521
+      6. CWE 798
+      7. CWE 307
+      8. CWE 601
+      9. CWE 620
+      10. CWE 352
+  </div>
+</section>
+
+{% endblock %}
