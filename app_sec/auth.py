@@ -22,7 +22,6 @@ def login():
         
         print(f"Received login request for email: {email}")
         
-        # Check login attempts
         can_attempt, error_message = check_login_attempts(email)
         if not can_attempt:
             print(f"Login denied for email: {email} - {error_message}")
